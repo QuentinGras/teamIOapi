@@ -1,14 +1,21 @@
 <?php
-use Phalcon\Mvc\Micro;
+  $method = $_SERVER['REQUEST_METHOD'];
+  $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
+  $input = json_decode(file_get_contents('php://input'),true);
 
-$app = new Micro();
-
-$app->get(
-  "/api/teamIOapp/{name}",
-  function ($name) {
-      echo "<h1>Welcome $name!</h1>";
+  print_r($request);
+  switch ($method) {
+    case 'GET':
+      break;
+    case 'POST':
+      break;
+    case 'PUT':
+      break;
+    case 'DELETE':
+      break;
+    default:
+    echo 'fail';
+      break;
   }
-);
 
-$app->handle();
 ?>
