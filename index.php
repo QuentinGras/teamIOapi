@@ -1,17 +1,20 @@
 <?php
   $method = $_SERVER['REQUEST_METHOD'];
-  $request = explode('/', trim($_SERVER['REQUEST_URI'],'/'));
-  $input = json_decode(file_get_contents('php://input'),true);
+
 
   print_r($request);
   switch ($method) {
     case 'GET':
+        include('get.php');
       break;
     case 'POST':
+        include('post.php');
       break;
     case 'PUT':
+        include('put.php');
       break;
     case 'DELETE':
+        include('delete.php');
       break;
     default:
     echo 'fail';
