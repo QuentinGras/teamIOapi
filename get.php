@@ -11,10 +11,13 @@
   }
   switch ($request[2]) {
     case 'tempDay':
-      foreach($bdd->query('SELECT * FROM WaWTemp') as $row)
+      echo '{';
+      foreach($bdd->query('SELECT * FROM WaWTemp WHERE date > DATE_SUB(NOW(), INTERVAL 1 DAY)') as $row)
       {
-        print_r($row);
+        echo $row['date'].':'.$row['value'].','
+        //print_r($row);
       }
+      echo '}';
       break;
     case 'tempWeek':
       # code...

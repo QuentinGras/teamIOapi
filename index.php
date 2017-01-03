@@ -1,8 +1,5 @@
 <?php
   $method = $_SERVER['REQUEST_METHOD'];
-
-
-  print_r($request);
   switch ($method) {
     case 'GET':
         include('get.php');
