@@ -1,9 +1,9 @@
 <?php
   $request = explode('/', trim($_SERVER['REQUEST_URI'],'/'));
-  $input = json_decode(file_get_contents('php://input'),true);
+//  $input = json_decode(file_get_contents('php://input'),true);
   try
   {
-      $bdd = new PDO('mysql:host=docapostnwdocadb.mysql.db;dbname=docapostnwdocadb;', 'docapostnwdocadb', 'Doc    a2016');
+      $bdd = new PDO('mysql:host=docapostnwdocadb.mysql.db;dbname=docapostnwdocadb;', 'docapostnwdocadb', 'Doca2016');
   }
   catch(Exception $e)
   {
