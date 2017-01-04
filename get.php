@@ -45,7 +45,7 @@
     case 'tempMonth':
       echo '{';
       for ($i = 0; $i < 31; $i++){
-        $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE MONTH(date) = ?');
+        $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE DAY(date) = ?');
         $req->execute(array($i));
         echo '"'.$i.'":"';
         foreach($req as $row)
