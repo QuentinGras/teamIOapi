@@ -17,13 +17,13 @@
       for ($i = 9; $i < 19; $i++){
         $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE HOUR(date) = ?');
         $req->execute(array($i));
-        echo $i;
+        echo '"'.$i.'":"';
         foreach($req as $row)
         {
-          print_r($row[0]);
+          echo $row[0].'",'
           //echo '"'.$row['date'].'":"'.$row['value'].'",';
         }
-        echo '<br>';
+    //    echo '<br>';
       }
       echo '}';
       break;
