@@ -1,6 +1,8 @@
 <?php
   $request = explode('/', trim($_SERVER['REQUEST_URI'],'/'));
-//  $input = json_decode(file_get_contents('php://input'),true);
+  //TODO: Gerer le remplissage de la BDD
+
+  //  $input = json_decode(file_get_contents('php://input'),true);
   try
   {
       $bdd = new PDO('mysql:host=docapostnwdocadb.mysql.db;dbname=docapostnwdocadb;', 'docapostnwdocadb', 'Doca2016');
@@ -12,18 +14,43 @@
   switch ($request[2]) {
     case 'tempDay':
       echo '{';
-      foreach($bdd->query('SELECT * FROM WaWTemp WHERE date > DATE_SUB(NOW(), INTERVAL 1 HOUR)') as $row)
-      {
-        echo '"'.$row['date'].'":"'.$row['value'].'",';
-        //print_r($row);
+      for ($i = 9; $i < 19; $i++){
+        $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE HOUR(date) = ?');
+        $req->execute(array($i));
+        echo $i;
+        foreach($req as $row)
+        {
+          print_r($req);
+          //echo '"'.$row['date'].'":"'.$row['value'].'",';
+        }
       }
       echo '}';
       break;
     case 'tempWeek':
-      # code...
+      echo '{';
+      for ($i = 0; $i < 7; $i++){
+        $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE WEEKDAY(date, 3) = ?');
+        $req->execute(array($i));
+        foreach($req as $row)
+        {
+          print_r($req);
+          //echo '"'.$row['date'].'":"'.$row['value'].'",';
+        }
+      }
+      echo '}';
       break;
     case 'tempMonth':
-      # code...
+      echo '{';
+      for ($i = 0; $i < 31; $i++){
+        $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE MONTH(date) = ?');
+        $req->execute(array($i));
+        foreach($req as $row)
+        {
+          print_r($req);
+          //echo '"'.$row['date'].'":"'.$row['value'].'",';
+        }
+      }
+      echo '}';
       break;
     default:
       # code...
