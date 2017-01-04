@@ -32,12 +32,13 @@
       for ($i = 0; $i < 7; $i++){
         $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE WEEKDAY(date, 3) = ?');
         $req->execute(array($i));
+        echo '"'.$i.'":"';
         foreach($req as $row)
         {
-          print_r($row[0]);
+          echo $row[0].'",';
           //echo '"'.$row['date'].'":"'.$row['value'].'",';
         }
-        echo '<br>';
+    //    echo '<br>';
       }
       echo '}';
       break;
@@ -46,12 +47,13 @@
       for ($i = 0; $i < 31; $i++){
         $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE MONTH(date) = ?');
         $req->execute(array($i));
+        echo '"'.$i.'":"';
         foreach($req as $row)
         {
-          print_r($row[0]);
+          echo $row[0].'",';
           //echo '"'.$row['date'].'":"'.$row['value'].'",';
         }
-        echo '<br>';
+    //    echo '<br>';
       }
       echo '}';
       break;
