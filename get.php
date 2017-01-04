@@ -20,9 +20,10 @@
         echo $i;
         foreach($req as $row)
         {
-          print_r($row);
+          print_r($row[0]);
           //echo '"'.$row['date'].'":"'.$row['value'].'",';
         }
+        echo '<br>';
       }
       echo '}';
       break;
@@ -33,9 +34,10 @@
         $req->execute(array($i));
         foreach($req as $row)
         {
-          print_r($row);
+          print_r($row[0]);
           //echo '"'.$row['date'].'":"'.$row['value'].'",';
         }
+        echo '<br>';
       }
       echo '}';
       break;
@@ -46,9 +48,10 @@
         $req->execute(array($i));
         foreach($req as $row)
         {
-          print_r($row);
+          print_r($row[0]);
           //echo '"'.$row['date'].'":"'.$row['value'].'",';
         }
+        echo '<br>';
       }
       echo '}';
       break;
