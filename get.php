@@ -20,7 +20,7 @@
         echo '"'.$i.'":"';
         foreach($req as $row)
         {
-          echo $row[0].'",'
+          echo $row[0].'",';
           //echo '"'.$row['date'].'":"'.$row['value'].'",';
         }
     //    echo '<br>';
