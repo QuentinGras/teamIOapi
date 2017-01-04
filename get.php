@@ -30,7 +30,7 @@
     case 'tempWeek':
       echo '{';
       for ($i = 0; $i < 7; $i++){
-        $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE WEEKDAY(date, 3) = ?');
+        $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE WEEKDAY(date) = ?');
         $req->execute(array($i));
         echo '"'.$i.'":"';
         foreach($req as $row)
