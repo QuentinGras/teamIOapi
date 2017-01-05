@@ -14,10 +14,10 @@
   switch ($request[2]) {
     case 'tempDay':
       echo '{';
-      for ($i = 9; $i < 19; $i++){
+      for ($i = 10; $i < 19; $i++){
         $req = $bdd->prepare('SELECT AVG(value) FROM WaWTemp WHERE HOUR(date) = ?');
         $req->execute(array($i));
-        echo '"'.$i.'":"';
+        echo '"'.($i - 10).'":"';
         foreach($req as $row)
         {
           echo $row[0].'",';
