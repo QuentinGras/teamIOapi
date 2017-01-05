@@ -1,6 +1,6 @@
 <?php
   $request = explode('/', trim($_SERVER['REQUEST_URI'],'/'));
-  $data = explode('?', trim($request[2],'?'))
+  $data = explode('?', trim($request[2],'?'));
   //TODO: Gerer le remplissage de la BDD
 //INSERT INTO `docapostnwdocadb`.`WaWpause` VALUES ()
   //  $input = json_decode(file_get_contents('php://input'),true);
