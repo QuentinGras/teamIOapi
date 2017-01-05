@@ -35,4 +35,5 @@
       # code...
       break;
   }
+  echo 'ok';
  ?>
