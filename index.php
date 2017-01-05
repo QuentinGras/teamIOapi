@@ -2,7 +2,7 @@
   $method = $_SERVER['REQUEST_METHOD'];
   switch ($method) {
     case 'GET':
-        include('post.php');
+        include('get.php');
       break;
     case 'POST':
         include('post.php');

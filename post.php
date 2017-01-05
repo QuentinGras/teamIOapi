@@ -17,7 +17,7 @@
       $req = $bdd->prepare('INSERT INTO WaWTemp(value) VALUES(?)');
       $req->execute(array($data[1]));
       break;
-    case 'hum':
+    case 'humi':
       $req = $bdd->prepare('INSERT INTO WaWhumi(value) VALUES(?)');
       $req->execute(array($data[1]));
       break;
