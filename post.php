@@ -26,10 +26,10 @@
       $req->execute(array($data[1]));
       break;
     case 'aft':
-        $bdd->exec('INSERT INTO `docapostnwdocadb`.`WaWpause` VALUES ()');
+        $bdd->exec('INSERT INTO `docapostnwdocadb`.`WaWafter` VALUES ()');
       break;
     case 'pause':
-        $bdd->exec('INSERT INTO `docapostnwdocadb`.`WaWafter` VALUES ()');
+        $bdd->exec('INSERT INTO `docapostnwdocadb`.`WaWpause` VALUES ()');
       break;
     default:
       # code...
