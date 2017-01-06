@@ -13,20 +13,25 @@
   {
       die('Erreur : '.$e->getMessage());
   }
-  switch ($data[0]) {
+  switch ($input['event']) {
     case 'temp':
 
       $req = $bdd->prepare('INSERT INTO WaWTemp(value) VALUES(?)');
-      $req->execute(array($data[1]));
+      $req->execute(array($input['data']));
       break;
     case 'humi':
       $req = $bdd->prepare('INSERT INTO WaWhumi(value) VALUES(?)');
-      $req->execute(array($data[1]));
+      $req->execute(array($input['data']));
       break;
     case 'son':
       $req = $bdd->prepare('INSERT INTO WaWson(value) VALUES(?)');
-      $req->execute(array($data[1]));
+      $req->execute(array($input['data']));
       break;
+    default:
+      # code...
+      break;
+    }
+    switch ($data[0]) {    
     case 'aft':
         $bdd->exec('INSERT INTO `docapostnwdocadb`.`WaWafter` VALUES ()');
       break;
